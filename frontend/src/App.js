@@ -11,21 +11,21 @@ const Navigation = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
-    <nav className="bg-white shadow-lg fixed w-full top-0 z-50">
+    <nav className="bg-white shadow-md fixed w-full top-0 z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16">
           <div className="flex items-center">
             <div className="flex-shrink-0">
-              <h1 className="text-2xl font-bold text-gray-800">ArtzyBear</h1>
+              <h1 className="text-2xl font-bold gold-gradient">ArtzyBear</h1>
             </div>
           </div>
           
           <div className="hidden md:flex items-center space-x-8">
-            <a href="#home" className="text-gray-700 hover:text-gray-900 transition duration-300">Home</a>
-            <a href="#portfolio" className="text-gray-700 hover:text-gray-900 transition duration-300">Portfolio</a>
-            <a href="#commissions" className="text-gray-700 hover:text-gray-900 transition duration-300">Commissions</a>
-            <a href="#about" className="text-gray-700 hover:text-gray-900 transition duration-300">About</a>
-            <a href="#contact" className="text-gray-700 hover:text-gray-900 transition duration-300">Contact</a>
+            <a href="#home" className="text-gray-700 hover:text-gray-900 transition duration-300 nav-link">Home</a>
+            <a href="#portfolio" className="text-gray-700 hover:text-gray-900 transition duration-300 nav-link">Portfolio</a>
+            <a href="#commissions" className="text-gray-700 hover:text-gray-900 transition duration-300 nav-link">Commissions</a>
+            <a href="#about" className="text-gray-700 hover:text-gray-900 transition duration-300 nav-link">About</a>
+            <a href="#contact" className="text-gray-700 hover:text-gray-900 transition duration-300 nav-link">Contact</a>
           </div>
 
           <div className="md:hidden">
@@ -60,13 +60,13 @@ const Navigation = () => {
 // Hero Section
 const HeroSection = () => {
   return (
-    <section id="home" className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 pt-16">
+    <section id="home" className="min-h-screen hero-bg pt-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div className="space-y-8">
             <h1 className="text-5xl lg:text-6xl font-bold text-gray-900 leading-tight">
               Creating
-              <span className="block text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-pink-600">
+              <span className="block gold-gradient">
                 Timeless Art
               </span>
             </h1>
@@ -77,13 +77,13 @@ const HeroSection = () => {
             <div className="flex flex-col sm:flex-row gap-4">
               <a
                 href="#portfolio"
-                className="bg-gradient-to-r from-purple-600 to-pink-600 text-white px-8 py-3 rounded-lg font-semibold hover:shadow-lg transform hover:scale-105 transition duration-300 text-center"
+                className="btn-primary text-white px-8 py-3 rounded-lg font-semibold hover:shadow-lg transform hover:scale-105 transition duration-300 text-center"
               >
                 View Portfolio
               </a>
               <a
                 href="#commissions"
-                className="border-2 border-purple-600 text-purple-600 px-8 py-3 rounded-lg font-semibold hover:bg-purple-600 hover:text-white transition duration-300 text-center"
+                className="btn-secondary px-8 py-3 rounded-lg font-semibold hover:shadow-lg transform hover:scale-105 transition duration-300 text-center"
               >
                 Commission Art
               </a>
@@ -97,7 +97,7 @@ const HeroSection = () => {
             />
             <div className="absolute -bottom-6 -right-6 bg-white p-4 rounded-lg shadow-lg">
               <p className="text-sm font-semibold text-gray-900">Commission Range</p>
-              <p className="text-2xl font-bold text-purple-600">₹4,400 - ₹23,900</p>
+              <p className="text-2xl font-bold gold-gradient">₹4,400 - ₹23,900</p>
             </div>
           </div>
         </div>
@@ -173,7 +173,7 @@ const PortfolioSection = () => {
               onClick={() => setActiveCategory(category.id)}
               className={`px-6 py-3 rounded-full font-semibold transition duration-300 ${
                 activeCategory === category.id
-                  ? 'bg-purple-600 text-white shadow-lg'
+                  ? 'bg-gray-900 text-white shadow-lg'
                   : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
               }`}
             >
@@ -185,13 +185,13 @@ const PortfolioSection = () => {
         {/* Portfolio Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {filteredImages.map((item, index) => (
-            <div key={index} className="group relative overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition duration-300">
+            <div key={index} className="portfolio-item">
               <img
                 src={item.image}
                 alt={item.title}
-                className="w-full h-80 object-cover group-hover:scale-110 transition duration-500"
+                className="w-full h-80 object-cover"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition duration-300">
+              <div className="portfolio-overlay">
                 <div className="absolute bottom-6 left-6 text-white">
                   <h3 className="text-xl font-bold mb-2">{item.title}</h3>
                   <p className="text-sm opacity-90 capitalize">{item.category.replace('-', ' ')}</p>
@@ -462,7 +462,7 @@ const CommissionForm = () => {
 // About Section
 const AboutSection = () => {
   return (
-    <section id="about" className="py-20 bg-white">
+    <section id="about" className="py-20 bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div>
@@ -485,11 +485,11 @@ const AboutSection = () => {
             </p>
             <div className="grid grid-cols-2 gap-6">
               <div>
-                <h3 className="text-2xl font-bold text-purple-600">50+</h3>
+                <h3 className="text-2xl font-bold gold-gradient">50+</h3>
                 <p className="text-gray-600">Commissions Completed</p>
               </div>
               <div>
-                <h3 className="text-2xl font-bold text-purple-600">5+</h3>
+                <h3 className="text-2xl font-bold gold-gradient">5+</h3>
                 <p className="text-gray-600">Years Experience</p>
               </div>
             </div>
@@ -543,8 +543,8 @@ const ContactSection = () => {
               <h3 className="text-2xl font-bold mb-6">Contact Information</h3>
               <div className="space-y-4">
                 <div className="flex items-center space-x-4">
-                  <div className="bg-purple-600 p-3 rounded-lg">
-                    <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <div className="bg-gray-800 p-3 rounded-lg">
+                    <svg className="w-6 h-6 text-d4af37" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                     </svg>
                   </div>
@@ -554,8 +554,8 @@ const ContactSection = () => {
                   </div>
                 </div>
                 <div className="flex items-center space-x-4">
-                  <div className="bg-purple-600 p-3 rounded-lg">
-                    <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <div className="bg-gray-800 p-3 rounded-lg">
+                    <svg className="w-6 h-6 text-d4af37" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                     </svg>
@@ -588,7 +588,7 @@ const ContactSection = () => {
                   value={contactForm.name}
                   onChange={(e) => setContactForm({...contactForm, name: e.target.value})}
                   required
-                  className="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent text-white"
+                  className="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg focus:ring-2 focus:ring-d4af37 focus:border-transparent text-white"
                 />
               </div>
               <div>
@@ -598,7 +598,7 @@ const ContactSection = () => {
                   value={contactForm.email}
                   onChange={(e) => setContactForm({...contactForm, email: e.target.value})}
                   required
-                  className="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent text-white"
+                  className="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg focus:ring-2 focus:ring-d4af37 focus:border-transparent text-white"
                 />
               </div>
               <div>
@@ -608,7 +608,7 @@ const ContactSection = () => {
                   value={contactForm.subject}
                   onChange={(e) => setContactForm({...contactForm, subject: e.target.value})}
                   required
-                  className="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent text-white"
+                  className="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg focus:ring-2 focus:ring-d4af37 focus:border-transparent text-white"
                 />
               </div>
               <div>
@@ -618,13 +618,13 @@ const ContactSection = () => {
                   value={contactForm.message}
                   onChange={(e) => setContactForm({...contactForm, message: e.target.value})}
                   required
-                  className="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent text-white"
+                  className="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg focus:ring-2 focus:ring-d4af37 focus:border-transparent text-white"
                 ></textarea>
               </div>
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full bg-gradient-to-r from-purple-600 to-pink-600 text-white py-3 px-6 rounded-lg font-semibold hover:shadow-lg transform hover:scale-105 transition duration-300 disabled:opacity-50"
+                className="w-full btn-primary text-white py-3 px-6 rounded-lg font-semibold hover:shadow-lg transform hover:scale-105 transition duration-300 disabled:opacity-50"
               >
                 {isSubmitting ? 'Sending...' : 'Send Message'}
               </button>
